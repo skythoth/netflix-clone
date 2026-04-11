@@ -1,3 +1,11 @@
+.banner-loading {
+    height: 56vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #141414;
+}
+
 .banner {
     background-size: cover;
     background-position: center;
