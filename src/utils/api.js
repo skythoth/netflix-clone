@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_KEY = process.env.REACT_APP_API_KEY
+const API_KEY = import.meta.env.VITE_API_KEY
 
 const api = axios.create({
     baseURL: 'https://api.themoviedb.org/3',
@@ -18,7 +18,7 @@ api.interceptors.request.use(function (config) {
     // Do something with request error
     return Promise.reject(error);
   },
-  { synchronous: true, runWhen: () => /* This function returns true */}
+  { synchronous: true, runWhen: () => true }
 );
 
 // Add a response interceptor
