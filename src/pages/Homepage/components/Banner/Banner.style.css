@@ -85,3 +85,35 @@
 .btn-info:hover {
     background-color: rgba(109, 109, 110, 0.4);
 }
+
+@media (max-width: 768px) {
+    .banner,
+    .banner-loading {
+        height: 40vh;
+    }
+
+    .banner-content {
+        width: 100%;
+        padding: 20px;
+        gap: 12px;
+    }
+
+    .banner-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 4px;
+    }
+
+    .banner-content p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .banner-btn {
+        padding: 6px 16px;
+        font-size: 0.85rem;
+    }
+}
