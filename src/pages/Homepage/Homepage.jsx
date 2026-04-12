@@ -1,6 +1,9 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
 import Banner from './components/Banner/Banner'
+import PopularMovieSlide from './components/PopularMovieSlide/PopularMovieSlide'
+import TopRatedMovieSlide from './components/TopRatedMovieSlide/TopRatedMovieSlide'
+import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSlide'
 
 //1. 베너 만들기 => popular movie 중 첫번째 아이템을 보여주기
 //2. popular movie
@@ -9,7 +12,14 @@ import Banner from './components/Banner/Banner'
 
 const Homepage = () => {
   return (
-    <Banner />
+    <div>
+      <Banner />
+      <Container fluid>
+        <PopularMovieSlide />
+        <TopRatedMovieSlide />
+        <UpcomingMovieSlide />
+      </Container>
+    </div>
   )
 }
 

@@ -1,0 +1,58 @@
+.movie-slide-section {
+    padding: 30px 60px;
+    overflow-x: clip;
+    overflow-y: visible;
+    position: relative;
+    z-index: 1;
+}
+
+.movie-slide-section:hover {
+    z-index: 2;
+}
+
+.movie-slide-section h3 {
+    margin-bottom: 16px;
+}
+
+.movie-slide-section .carousel-container {
+    overflow: visible;
+}
+
+.movie-slide-section .movie-slider {
+    overflow: visible;
+    z-index: auto !important;
+}
+
+.movie-slide-section .react-multi-carousel-item {
+    z-index: auto !important;
+}
+
+.movie-slide-section .react-multi-carousel-item:has(.movie-card:hover) {
+    z-index: 100 !important;
+}
+
+.movie-slide-section .carousel-container:hover .movie-card {
+    opacity: 0.3;
+    z-index:1
+}
+
+.movie-slide-section .carousel-container:hover .movie-card:hover {
+    opacity: 1;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .movie-slide-section {
+        padding: 16px 20px;
+        overflow: hidden;
+    }
+
+    .movie-slide-section h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+
+    .movie-slide-section .carousel-container:hover .movie-card {
+        opacity: 1;
+    }
+}

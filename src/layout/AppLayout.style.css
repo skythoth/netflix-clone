@@ -88,3 +88,25 @@
   background-color: #141414;
   min-height: 100vh;
 }
+
+@media (max-width: 991px) {
+  .netflix-navbar {
+    height: auto;
+    padding: 10px 20px;
+    background-color: #141414 !important;
+    background-image: none;
+  }
+
+  .netflix-navbar .navbar-collapse {
+    background-color: #141414;
+    padding: 10px 0;
+  }
+
+  .netflix-navbar .navbar-brand img {
+    width: 72px;
+  }
+
+  .search-form .search-input.active {
+    width: 100%;
+  }
+}
