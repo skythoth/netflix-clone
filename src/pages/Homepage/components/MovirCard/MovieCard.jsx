@@ -1,5 +1,7 @@
 import React from 'react'
 import './MovieCard.style.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const MovieCard = ({ movie }) => {
 //   const genreNames = movie.genre_ids?.slice(0, 3).map(id => genreMap[id]).filter(Boolean)
@@ -19,11 +21,12 @@ const MovieCard = ({ movie }) => {
         </div>
       </div>
       <div className='movie-card-dropdown'>
+        <h4 className='movie-card-title'>{movie.title}</h4>
         <div className='movie-card-buttons'>
-          <button className='card-btn card-btn-play'>▶</button>
-          <button className='card-btn'>＋</button>
+          <button className='card-btn card-btn-play'><FontAwesomeIcon icon={faPlay} /></button>
+          <button className='card-btn'><FontAwesomeIcon icon={faPlus} /></button>
           <button className='card-btn'>👍</button>
-          <button className='card-btn card-btn-more'>∨</button>
+          <button className='card-btn card-btn-more'><FontAwesomeIcon icon={faChevronDown} /></button>
         </div>
         <div className='movie-card-meta'>
           <span className='movie-card-rating'>평점 : {movie.vote_average.toFixed(1)}</span>

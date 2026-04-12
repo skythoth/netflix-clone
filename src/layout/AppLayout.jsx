@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, useNavigate } from 'react-router-dom';
 import './AppLayout.style.css'
+import Footer from './Footer'
 
 const AppLayout = () => {
   const [searchOpen, setSearchOpen] = useState(false)
@@ -58,6 +59,7 @@ const AppLayout = () => {
       <div className="app-content">
         <Outlet />
       </div>
+      <Footer />
     </div>
   )
 }

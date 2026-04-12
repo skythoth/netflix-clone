@@ -37,6 +37,16 @@
     visibility: visible;
 }
 
+.movie-card-dropdown .movie-card-title {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 6px 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 /* Action buttons */
 .movie-card-buttons {
     display: flex;
