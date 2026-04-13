@@ -3,11 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate, Link } from 'react-router-dom';
 import './AppLayout.style.css'
 import Footer from './Footer'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import useAuthStore from '../store/useAuthStore';
 
 const AppLayout = () => {
   const [searchOpen, setSearchOpen] = useState(false)
@@ -22,11 +23,13 @@ const AppLayout = () => {
     }
   }
 
+  const { user } = useAuthStore()
+
   return (
     <div>
       <Navbar expand="lg" className="netflix-navbar">
         <Container fluid>
-          <Navbar.Brand href="/">
+          <Navbar.Brand as={Link} to="/">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Logonetflix.png"
               alt="Netflix"
@@ -35,9 +38,15 @@ const AppLayout = () => {
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/browse/movies">Movies</Nav.Link>
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+              <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
             </Nav>
+            <div className='nav-profile-item'>
+                <div className='nav-profile-avatar' style={{ backgroundColor: user.color }}>
+                    <span className='nav-profile-initial'>{user.name.charAt(0)}</span>
+                </div>
+                <span className='nav-profile-name'>{user.name}</span>
+            </div>
             <Form className="d-flex search-form" onSubmit={handleSearch}>
               <Form.Control
                 type="search"

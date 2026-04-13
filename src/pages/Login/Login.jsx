@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 import './Login.style.css'
 import { motion } from 'framer-motion'
+import useAuthStore from '../../store/useAuthStore'
 
 const profiles = [
   { name: '사용자 1', color: '#e50914' },
@@ -13,11 +14,13 @@ const profiles = [
 
 const Login = () => {
   const navigate = useNavigate()
+  const { login } = useAuthStore()
 
-  const handleProfile = () => {
-    navigate('/browse')
+  const handleProfile = (profile) => {
+    login(profile)
+    navigate('/')
+    console.log('profile :', profile)
   }
-
   return (
     <motion.div
         initial={{ opacity: 0 }}    // 처음 상태 (안 보임)
@@ -37,7 +40,7 @@ const Login = () => {
             <h1 className='login-title'>넷플릭스를 시청할 프로필을 선택하세요.</h1>
             <div className='profile-grid'>
             {profiles.map((profile, index) => (
-                <div className='profile-item' key={index} onClick={handleProfile} >
+                <div className='profile-item' key={index} onClick={() => handleProfile(profile)} >
                 <div className='profile-avatar' style={{ backgroundColor: profile.color }}>
                     <span className='profile-initial'>{profile.name.charAt(0)}</span>
                 </div>
