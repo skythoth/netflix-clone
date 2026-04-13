@@ -125,7 +125,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 2px;
 }
 
 .genre-dot {
@@ -159,7 +158,7 @@
         right: 0;
         bottom: 0;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.95), transparent);
-        padding: 20px 8px 8px;
+        padding: 40px 8px 8px;
         border-radius: 0 0 4px 4px;
     }
 

@@ -1,0 +1,27 @@
+import React from 'react'
+import './MovieSlider.style.css'
+import ReactMultiCarousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import MovieCard from '../MovieCard/MovieCard';
+
+const Carousel = ReactMultiCarousel.default || ReactMultiCarousel;
+
+const MovieSlider = ({title, movies, responsive}) => {
+  return (
+        <div className='movie-slide-section'>
+            <h3>{title}</h3>
+            <Carousel
+                infinite={true}
+                itemClass='movie-slider p-1'
+                containerClass='carousel-container'
+                responsive={responsive}
+            >
+                {movies.map((movie, index) => (
+                    <MovieCard movie={movie} key={index} />
+                ))}
+            </Carousel>
+        </div>
+    )
+}
+
+export default MovieSlider

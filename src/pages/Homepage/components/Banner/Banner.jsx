@@ -3,12 +3,13 @@ import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies'
 import Alert from 'react-bootstrap/Alert';
 import Spinner from 'react-bootstrap/Spinner';
 import './Banner.style.css'
+import { motion } from 'framer-motion';
 
 
 const Banner = () => {
     const { data, isLoading, isError, error } = usePopularMoviesQuery()
-    console.log('data', data)
-
+    const randomMovie = data?.results[Math.floor(Math.random() * data.results.length)]
+    
     if (isLoading) {
         return <div className='banner-loading'><Spinner animation="border" variant="light" /></div>
     }
@@ -16,19 +17,23 @@ const Banner = () => {
         return <Alert variant='danger'>{error.message}</Alert>
     }
     return (
-    <div className='banner' style={{
-        backgroundImage: `url("https://media.themoviedb.org/t/p/w1280${data[0].backdrop_path}")`,
-    }}>
+
+    <motion.div className='banner' 
+        style={{backgroundImage: `url("https://media.themoviedb.org/t/p/w1280${randomMovie.backdrop_path}")`}}
+        initial={{ opacity: 0 }}                             
+        animate={{ opacity: 1 }}                             
+        transition={{ duration: 1 }}
+    >
 
         <div className='banner-content'>
-            <h1>{data[0].title}</h1>
-            <p>{data[0].overview}</p>
+            <h1>{randomMovie.title}</h1>
+            <p>{randomMovie.overview}</p>
             <div className='banner-buttons'>
                 <button className='banner-btn btn-play'>▶ 재생</button>
                 <button className='banner-btn btn-info'>상세 정보</button>
             </div>
         </div>
-    </div>
+    </motion.div>
     )
 }
 

@@ -1,0 +1,125 @@
+.login-page {
+    background-color: #141414;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-header {
+    padding: 20px 40px;
+}
+
+.login-logo {
+    width: 120px;
+}
+
+.login-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-title {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.profile-grid {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.profile-item:hover .profile-avatar {
+    outline: 3px solid #fff;
+}
+
+.profile-item:hover .profile-name {
+    color: #fff;
+}
+
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: outline 0.2s;
+    outline: 3px solid transparent;
+}
+
+.profile-initial {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.profile-name {
+    color: #808080;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.manage-btn {
+    background: transparent;
+    border: 1px solid #808080;
+    color: #808080;
+    padding: 8px 24px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.manage-btn:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+@media (max-width: 768px) {
+    .login-header {
+        padding: 20px 20px;
+    }
+    .login-logo {
+        width: 80px;
+    }
+    .login-title {
+        font-size: 1.3rem;
+    }
+
+    .profile-avatar {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-initial {
+        font-size: 1.8rem;
+    }
+
+    .profile-grid {
+        gap: 16px;
+    }
+
+    .profile-name {
+        font-size: 12px;
+    }
+}

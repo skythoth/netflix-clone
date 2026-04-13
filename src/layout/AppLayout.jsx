@@ -6,6 +6,8 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Outlet, useNavigate } from 'react-router-dom';
 import './AppLayout.style.css'
 import Footer from './Footer'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 
 const AppLayout = () => {
   const [searchOpen, setSearchOpen] = useState(false)
@@ -34,7 +36,7 @@ const AppLayout = () => {
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto">
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/movies">Movies</Nav.Link>
+              <Nav.Link href="/browse/movies">Movies</Nav.Link>
             </Nav>
             <Form className="d-flex search-form" onSubmit={handleSearch}>
               <Form.Control
@@ -49,7 +51,7 @@ const AppLayout = () => {
                 className="search-btn"
                 onClick={() => setSearchOpen(!searchOpen)}
               >
-                🔍
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
             </Form>
           </Navbar.Collapse>

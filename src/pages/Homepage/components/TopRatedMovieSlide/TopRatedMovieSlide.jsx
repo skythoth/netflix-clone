@@ -2,26 +2,9 @@ import React from 'react'
 import { useTopRatedMoviesQuery } from '../../../../hooks/useTopRatedMovies'
 import Alert from 'react-bootstrap/Alert';
 import Spinner from 'react-bootstrap/Spinner';
-import ReactMultiCarousel from 'react-multi-carousel';
-const Carousel = ReactMultiCarousel.default || ReactMultiCarousel;
-import 'react-multi-carousel/lib/styles.css';
-import MovieCard from '../MovirCard/MovieCard';
-import './TopRatedMovieSlide.style.css';
+import MovieSlider from '../../../../common/MovieSlider/MovieSlider';
+import responsive from '../../../../constants/responsive';
 
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 6
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 464 },
-        items: 3
-    },
-    mobile: {
-        breakpoint: { max: 464, min: 0 },
-        items: 2
-    }
-};
 
 const TopRatedMovieSlide = () => {
 
@@ -36,20 +19,7 @@ const TopRatedMovieSlide = () => {
     }
         
     return (
-        <div className='movie-slide-section'>
-            <h3>Top Rated Movies</h3>
-            <Carousel
-                infinite={true}
-                centerMode={true}
-                itemClass='movie-slider p-1'
-                containerClass='carousel-container'
-                responsive={responsive}
-            >
-                {data.map((movie, index) => (
-                    <MovieCard movie={movie} key={index} />
-                ))}
-            </Carousel>
-        </div>
+        <MovieSlider title='Top Rated Movies' movies={data.results} responsive={responsive} />
     )
 }
 
