@@ -56,7 +56,7 @@ const AppLayout = () => {
                 onChange={(e) => setKeyword(e.target.value)}
               />
               <button
-                type="button"
+                type="submit"
                 className="search-btn"
                 onClick={() => setSearchOpen(!searchOpen)}
               >
