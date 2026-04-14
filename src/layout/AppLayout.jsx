@@ -41,16 +41,10 @@ const AppLayout = () => {
               <Nav.Link as={Link} to="/">Home</Nav.Link>
               <Nav.Link as={Link} to="/movies">Movies</Nav.Link>
             </Nav>
-            <div className='nav-profile-item'>
-                <div className='nav-profile-avatar' style={{ backgroundColor: user.color }}>
-                    <span className='nav-profile-initial'>{user.name.charAt(0)}</span>
-                </div>
-                <span className='nav-profile-name'>{user.name}</span>
-            </div>
             <Form className="d-flex search-form" onSubmit={handleSearch}>
               <Form.Control
                 type="search"
-                placeholder="Search"
+                placeholder="검색어를 입력하세요"
                 className={`search-input ${searchOpen ? 'active' : ''}`}
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
@@ -63,6 +57,12 @@ const AppLayout = () => {
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
             </Form>
+            <div className='nav-profile-item'>
+                <div className='nav-profile-avatar' style={{ backgroundColor: user.color }}>
+                    <span className='nav-profile-initial'>{user.name.charAt(0)}</span>
+                </div>
+                <span className='nav-profile-name'>{user.name}</span>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
