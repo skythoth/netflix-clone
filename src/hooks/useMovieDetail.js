@@ -10,6 +10,15 @@ export const useMovieDetailQuery = (id) => {
     })
 }
 
+export const useMovieRecommendQuery = (id) => {
+    return useQuery({
+        queryKey: ['movie-recommend', id],
+        queryFn: () => api.get(`/movie/${id}/recommendations`),
+        select: (result) => result.data.results,
+        enabled: !!id,
+    })
+}
+
 export const useMovieReviewsQuery = (id) => {
     return useQuery({
         queryKey: ['movie-reviews', id],

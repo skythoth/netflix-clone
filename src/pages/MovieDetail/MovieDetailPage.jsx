@@ -5,16 +5,29 @@ import { useParams } from 'react-router-dom'
 import { Container, Row, Col, Badge } from 'react-bootstrap'
 import { Accordion } from 'react-bootstrap'
 import './MovieDetailPage.style.css'
+import Spinner from 'react-bootstrap/Spinner';
+import Alert from 'react-bootstrap/Alert';
+import { useMovieRecommendQuery } from '../../hooks/useMovieDetail'
+import MovieSlider from '../../common/MovieSlider/MovieSlider'
+import responsive from '../../constants/responsive';
 
 const MovieDetailPage = () => {
   const { id } = useParams()
-  const { data } = useMovieDetailQuery(id)
+  const { data, isLoading, isError, error  } = useMovieDetailQuery(id)
+  const { data: recommend } = useMovieRecommendQuery(id)
   const { data: reviews } = useMovieReviewsQuery(id)
   const { data: videos } = useMovieVideosQuery(id)
 
   const trailer = videos?.find(
     (v) => v.type === 'Trailer' && v.site === 'YouTube'
   ) || videos?.[0]
+
+  if (isLoading) {
+    return <div style={{ display: 'flex', justifyContent: 'center', padding: '20px' }}><Spinner animation="border" variant="light" /></div>
+  }
+  if (isError) {
+    return <Alert variant='danger'>{error.message}</Alert>
+  }
 
   return (
   <Container>
@@ -37,7 +50,7 @@ const MovieDetailPage = () => {
 
             <div className="movie-detail-info mb-3">
               <span>⭐ {data?.vote_average?.toFixed(1)}</span> |
-              <span>인기도: {data?.popularity?.toFixed(0)}%</span> |
+              <span>인기도: {data?.popularity?.toFixed(0)}</span> |
               <span>{data?.adult ? '18+' : 'All'}</span> |
               <span>개봉일: {data?.release_date}</span> |
               <span>{data?.runtime}분</span>
@@ -51,6 +64,11 @@ const MovieDetailPage = () => {
             <p className="movie-detail-overview">
               {data?.overview || '줄거리 정보가 없습니다.'}
             </p>
+      </Col>
+    </Row>
+    <Row>
+      <Col>
+        <MovieSlider title='Related Movies' movies={recommend} responsive={responsive} />
       </Col>
     </Row>
     <div className="mt-5">
