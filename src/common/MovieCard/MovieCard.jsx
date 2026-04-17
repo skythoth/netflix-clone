@@ -2,9 +2,10 @@ import React from 'react'
 import './MovieCard.style.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown, faPlay, faPlus } from '@fortawesome/free-solid-svg-icons'
-import { useMovieGenreQuery } from '../../hooks/useMovieGenre'
+import { useNavigate } from 'react-router-dom'
 
 const MovieCard = ({ movie }) => {
+  const navigate = useNavigate()
   const genreNames = movie.genre_ids?.slice(0, 3).map(id => genreMap[id]).filter(Boolean)
 
   // const {data : genreData} = useMovieGenreQuery();
@@ -20,7 +21,7 @@ const MovieCard = ({ movie }) => {
   // }
 
   return (
-    <div className='movie-card'>
+    <div className='movie-card' onClick={() => navigate(`/movies/${movie.id}`)}>
       <img
         src={`https://media.themoviedb.org/t/p/w300${movie.poster_path}`}
         alt={movie.title}
