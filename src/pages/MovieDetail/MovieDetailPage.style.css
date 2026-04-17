@@ -94,3 +94,20 @@
     border: none;
     border-radius: 8px;
   }
+
+  .accordion-button {
+    background-color: transparent !important;
+    color: #fff !important;
+    font-size: 1.25rem;
+    font-weight: 700;
+    box-shadow: none !important;
+    padding-left: 0;
+  }
+
+  .accordion-button::after {
+    filter: invert(1);
+  }
+
+  .accordion-body {
+    padding: 0;
+  }
