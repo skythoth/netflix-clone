@@ -13,6 +13,7 @@
 
   .movie-detail-poster {
     width: 100%;
+    max-width: 350px;
     border-radius: 8px;
   }
 
@@ -110,4 +111,48 @@
 
   .accordion-body {
     padding: 0;
+  }
+
+  @media (max-width: 991px) {
+    .movie-detail-poster {
+      max-width: 250px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .movie-detail-title {
+      font-size: 1.8rem;
+      text-align: center;
+    }
+
+    .movie-detail-info {
+      justify-content: center;
+    }
+
+    .movie-detail-overview {
+      font-size: 14px;
+    }
+
+    .review-card {
+      padding: 15px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .movie-detail-poster {
+      max-width: 200px;
+    }
+
+    .movie-detail-title {
+      font-size: 1.4rem;
+    }
+
+    .movie-detail-info {
+      font-size: 13px;
+      gap: 10px;
+    }
+
+    .accordion-button {
+      font-size: 1rem;
+    }
   }

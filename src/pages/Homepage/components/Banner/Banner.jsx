@@ -4,11 +4,13 @@ import Alert from 'react-bootstrap/Alert';
 import Spinner from 'react-bootstrap/Spinner';
 import './Banner.style.css'
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 
-const Banner = () => {
+const Banner = (movie) => {
     const { data, isLoading, isError, error } = usePopularMoviesQuery()
     const randomMovie = data?.results[Math.floor(Math.random() * data.results.length)]
+    const navigate = useNavigate()
     
     if (isLoading) {
         return <div className='banner-loading'><Spinner animation="border" variant="light" /></div>
@@ -30,7 +32,7 @@ const Banner = () => {
             <p>{randomMovie.overview}</p>
             <div className='banner-buttons'>
                 <button className='banner-btn btn-play'>▶ 재생</button>
-                <button className='banner-btn btn-info'>상세 정보</button>
+                <button className='banner-btn btn-info' onClick={() => navigate(`/movies/${randomMovie.id}`)}>상세 정보</button>
             </div>
         </div>
     </motion.div>
