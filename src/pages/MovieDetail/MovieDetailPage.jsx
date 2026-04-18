@@ -66,11 +66,13 @@ const MovieDetailPage = () => {
             </p>
       </Col>
     </Row>
-    <Row>
-      <Col>
-        <MovieSlider title='Related Movies' movies={recommend} responsive={responsive} />
-      </Col>
-    </Row>
+    {recommend?.length > 0 && (
+      <Row>
+        <Col>
+          <MovieSlider title='Related Movies' movies={recommend} responsive={responsive} />
+        </Col>
+      </Row>
+    )}
     <div className="mt-5">
       <Accordion className="mt-5">
         <Accordion.Item eventKey="0" className="bg-transparent border-0">
